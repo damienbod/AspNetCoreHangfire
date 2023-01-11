@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreHangfire", "AspNe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2DC29A39-91DC-48BB-939B-48BC32DFD4C1}"
 	ProjectSection(SolutionItems) = preProject
+		hangfire-default-install.sql = hangfire-default-install.sql
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
