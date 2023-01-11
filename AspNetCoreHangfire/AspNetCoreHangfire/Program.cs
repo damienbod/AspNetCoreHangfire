@@ -1,4 +1,5 @@
 using Hangfire;
+using Hangfire.SqlServer;
 
 namespace AspNetCoreHangfire;
 
@@ -17,7 +18,15 @@ public class Program
         services.AddHangfire(hangfire => 
         {
             hangfire.UseColouredConsoleLogProvider();
-            hangfire.UseSqlServerStorage(configuration.GetConnectionString("HangfireConn"));
+            hangfire.UseSqlServerStorage(configuration.GetConnectionString("HangfireConn"), 
+                new SqlServerStorageOptions
+                {
+                    CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+                    SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+                    QueuePollInterval = TimeSpan.Zero,
+                    UseRecommendedIsolationLevel = true,
+                    DisableGlobalLocks = true 
+                });
         });
 
         var app = builder.Build();
