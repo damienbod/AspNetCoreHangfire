@@ -27,6 +27,11 @@ public class Program
             app.UseHsts();
         }
 
+        app.UseHangfireDashboard();
+
+        //app.UseHangfireDashboard(options: new DashboardOptions() 
+        //    { /*Authorization = new[] { new HangfireAuthorizationFilter() }*/ });
+
         app.UseHttpsRedirection();
         app.UseStaticFiles();
 
