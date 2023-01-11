@@ -13,9 +13,12 @@ public class Program
         var env = builder.Environment;
 
         services.AddRazorPages();
-        services.AddHangfire(
-            x => x.UseSqlServerStorage(configuration.GetConnectionString("HangfireConn"))
-        );
+
+        services.AddHangfire(hangfire => 
+        {
+            hangfire.UseColouredConsoleLogProvider();
+            hangfire.UseSqlServerStorage(configuration.GetConnectionString("HangfireConn"));
+        });
 
         var app = builder.Build();
 
