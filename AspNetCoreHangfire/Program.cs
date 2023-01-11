@@ -1,5 +1,6 @@
 using Hangfire;
 using Hangfire.SqlServer;
+using Microsoft.Extensions.Configuration;
 
 namespace AspNetCoreHangfire;
 
@@ -15,8 +16,11 @@ public class Program
 
         services.AddRazorPages();
 
-        services.AddHangfire(hangfire => 
+        services.AddHangfire(hangfire =>
         {
+            hangfire.SetDataCompatibilityLevel(CompatibilityLevel.Version_170);
+            hangfire.UseSimpleAssemblyNameTypeSerializer();
+            hangfire.UseRecommendedSerializerSettings();
             hangfire.UseColouredConsoleLogProvider();
             hangfire.UseSqlServerStorage(configuration.GetConnectionString("HangfireConn"), 
                 new SqlServerStorageOptions
@@ -38,6 +42,9 @@ public class Program
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
+
+        // Add the processing server as IHostedService
+        services.AddHangfireServer();
 
         app.UseHangfireDashboard();
 
