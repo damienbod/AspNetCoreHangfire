@@ -46,7 +46,7 @@ public class Program
         }
 
         // Add the processing server as IHostedService
-        services.AddHangfireServer();
+        //services.AddHangfireServer();
 
         app.UseHangfireDashboard();
 
