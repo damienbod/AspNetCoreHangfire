@@ -1,6 +1,6 @@
+using AspNetCoreHangfire.Jobs;
 using Hangfire;
 using Hangfire.SqlServer;
-using Microsoft.Extensions.Configuration;
 
 namespace AspNetCoreHangfire;
 
@@ -13,6 +13,8 @@ public class Program
         var services = builder.Services;
         var configuration = builder.Configuration;
         var env = builder.Environment;
+
+        services.AddScoped<IMyRecurringJob, MyRecurringJob>();
 
         services.AddRazorPages();
 
