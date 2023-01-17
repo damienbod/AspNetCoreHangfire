@@ -34,9 +34,10 @@ public class Program
                     UseRecommendedIsolationLevel = true,
                     DisableGlobalLocks = true 
                 });
-
-            var server = new BackgroundJobServer();
         });
+
+        // Add this to a worker
+        var server = new BackgroundJobServer();
 
         var app = builder.Build();
 
