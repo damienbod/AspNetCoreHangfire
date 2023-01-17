@@ -14,6 +14,7 @@ public class Program
         var configuration = builder.Configuration;
         var env = builder.Environment;
 
+        services.AddScoped<IMyBackgroundJob, MyBackgroundJob>();
         services.AddScoped<IMyRecurringJob, MyRecurringJob>();
 
         services.AddRazorPages();
@@ -33,6 +34,8 @@ public class Program
                     UseRecommendedIsolationLevel = true,
                     DisableGlobalLocks = true 
                 });
+
+            var server = new BackgroundJobServer();
         });
 
         var app = builder.Build();
@@ -46,7 +49,7 @@ public class Program
         }
 
         // Add the processing server as IHostedService
-        //services.AddHangfireServer();
+        //services.AddHangfireServer()
 
         app.UseHangfireDashboard();
 

@@ -1,3 +1,4 @@
+using AspNetCoreHangfire.Jobs;
 using Hangfire;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -14,6 +15,6 @@ public class CreateBackgroundJob : PageModel
     /// </summary>
     public void OnPost() 
     {
-        BackgroundJob.Enqueue(() => Console.WriteLine("My background job is running!"));
+        BackgroundJob.Enqueue<IMyBackgroundJob>(x => x.DoSomethingReenetrant());
     }
 }
