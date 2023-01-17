@@ -34,10 +34,12 @@ public class Program
                     UseRecommendedIsolationLevel = true,
                     DisableGlobalLocks = true 
                 });
-        });
 
-        // Add this to a worker
-        var server = new BackgroundJobServer();
+            var server = new BackgroundJobServer(new BackgroundJobServerOptions
+            {
+                ServerName = "hangfire-test",
+            });
+        });
 
         var app = builder.Build();
 
