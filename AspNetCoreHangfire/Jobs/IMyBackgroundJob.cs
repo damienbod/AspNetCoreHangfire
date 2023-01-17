@@ -2,5 +2,5 @@
 
 public interface IMyBackgroundJob
 {
-    public void DoSomethingReenetrant();
+    public void DoSomethingReentrant();
 }

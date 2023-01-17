@@ -12,6 +12,6 @@ public class CreateRecurringJobModel : PageModel
 
     public void OnPost() 
     {
-        RecurringJob.AddOrUpdate<IMyRecurringJob>(job => job.DoSomethingReenetrant(), Cron.Hourly);
+        RecurringJob.AddOrUpdate<IMyRecurringJob>(job => job.DoSomethingReentrant(), Cron.Hourly);
     }
 }

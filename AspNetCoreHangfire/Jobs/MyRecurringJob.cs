@@ -2,7 +2,7 @@
 
 public class MyRecurringJob : IMyRecurringJob
 {
-    public void DoSomethingReenetrant()
+    public void DoSomethingReentrant()
     {
         Console.WriteLine("IMyRecurringJob doing something");
     }

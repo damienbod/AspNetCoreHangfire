@@ -15,6 +15,6 @@ public class CreateBackgroundJob : PageModel
     /// </summary>
     public void OnPost() 
     {
-        BackgroundJob.Enqueue<IMyBackgroundJob>(x => x.DoSomethingReenetrant());
+        BackgroundJob.Enqueue<IMyBackgroundJob>(x => x.DoSomethingReentrant());
     }
 }

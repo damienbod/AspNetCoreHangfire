@@ -2,5 +2,5 @@
 
 public interface IMyRecurringJob
 {
-    public void DoSomethingReenetrant();
+    public void DoSomethingReentrant();
 }

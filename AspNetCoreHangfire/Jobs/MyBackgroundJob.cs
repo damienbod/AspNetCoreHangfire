@@ -2,7 +2,7 @@
 
 public class MyBackgroundJob : IMyBackgroundJob
 {
-    public void DoSomethingReenetrant()
+    public void DoSomethingReentrant()
     {
         Console.WriteLine("IMyBackgroundJob doing something");
     }
