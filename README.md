@@ -2,6 +2,8 @@
 
 [![.NET](https://github.com/damienbod/AspNetCoreHangfire/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/AspNetCoreHangfire/actions/workflows/dotnet.yml)
 
+[Using Hangfire with ASP.NET Core](https://damienbod.com/)
+
 ## Links
 
 https://docs.hangfire.io/
